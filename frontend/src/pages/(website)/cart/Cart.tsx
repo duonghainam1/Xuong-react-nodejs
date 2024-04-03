@@ -1,6 +1,7 @@
 import useCart from "@/hooks/carts/useCartQuery"
 import { Banner, Services } from "../../../components/HomePages"
 import "@/style/cart.css"
+import { Link } from "react-router-dom";
 const Cart = () => {
     const { data, isLoading, mutate } = useCart();
     if (isLoading) return <div>...Loading</div>
@@ -71,7 +72,7 @@ const Cart = () => {
                                     <p className="cart-totals-block__number--name color">25.000.000đ</p>
                                 </div>
                             </div>
-                            <a href="checkout.html"><button className="cart-totals__btn">Check Out</button></a>
+                            <Link to={`/checkout`}><button className="cart-totals__btn">Check Out</button></Link>
                         </div>
                     </div>
                 </div>

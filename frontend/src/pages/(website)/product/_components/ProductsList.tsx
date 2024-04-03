@@ -16,8 +16,8 @@ const ProductsList = ({ featured }: ProductListProps) => {
         queryKey: ["PRODUCTS"],
         queryFn: getAllProducts
     });
-
     const { mutate } = useCartMutations()
+
     const filteredProducts = featured
         ? products?.filter((product: Iproduct) => product?.featured == featured)
         : products;

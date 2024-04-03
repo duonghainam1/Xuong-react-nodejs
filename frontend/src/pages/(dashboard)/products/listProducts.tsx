@@ -26,7 +26,6 @@ const ListProducts = () => {
                 <Link to={'/admin/products/add'}><Button className='my-5 bg-blue-500'>Thêm</Button></Link>
             </div>
             <Table className='border-collapse'>
-
                 <TableCaption>Bảng sản phẩm</TableCaption>
                 <TableHeader>
                     <TableRow>
@@ -36,14 +35,12 @@ const ListProducts = () => {
                         <TableHead className='border'>Ảnh sản phẩm</TableHead>
                         <TableHead className='border'>Mô tả sản phẩm</TableHead>
                         <TableHead className='border'>Discount</TableHead>
-                        <TableHead className='border'>Số lượng trong kho</TableHead>
+                        <TableHead className='border'>Số lượng</TableHead>
                         <TableHead className='border'>Danh mục</TableHead>
                         <TableHead className='border'>Chức năng</TableHead>
-
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-
                     {data?.map((product: Iproduct, index: number) => {
                         return (
                             <TableRow key={index}>
@@ -59,19 +56,13 @@ const ListProducts = () => {
                                     <Button className='bg-red-500' onClick={() => mutate(product)}>Xóa</Button>
                                     <Link to={`/admin/products/edit/${product._id}`}><Button className='my-5 bg-blue-500'>Sửa</Button></Link>
                                 </TableCell>
-
                             </TableRow>
                         )
                     })}
-
-
                 </TableBody>
             </Table>
         </>
-
-
     )
-
 }
 
 export default ListProducts

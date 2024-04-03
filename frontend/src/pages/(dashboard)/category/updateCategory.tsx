@@ -15,13 +15,14 @@ import { useEffect } from "react";
 
 const UpdateCategory = () => {
     const { id } = useParams();
-    const { data } = useCategoryQuery(id)
+    const { data } = useCategoryQuery(id!)
     const { onSubmit, form } = useCategoryMutation({
         action: "update"
     });
     useEffect(() => {
         form.reset(data);
     }, [id, form, data]);
+
     return (
         <>
             <h1 className="text-center my-6 text-3xl font-bold">Cập nhật danh mục</h1>

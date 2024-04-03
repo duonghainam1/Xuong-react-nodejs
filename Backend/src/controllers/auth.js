@@ -42,7 +42,6 @@ export const signin = async (req, res) => {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ messages: errors })
     }
     const user = await User.findOne({ email })
-    console.log(user);
     if (!user) {
         return res.status(StatusCodes.NOT_FOUND).json({
             messages: ["Email không tồn tại"]
@@ -56,8 +55,9 @@ export const signin = async (req, res) => {
         })
     }
     const token = jwt.sign({ userId: user._id }, "123456", {
-        expiresIn: "7d",
+        expiresIn: "3m",
     })
+    user.password = undefined
     return res.status(StatusCodes.OK).json({
         user,
         token,

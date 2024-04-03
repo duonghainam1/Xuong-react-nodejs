@@ -1,3 +1,4 @@
+import useCartMutations from "@/hooks/carts/useCartMutations";
 import useProductsQuery from "@/hooks/products/useProductsQuery";
 import { useParams } from "react-router-dom";
 
@@ -5,6 +6,7 @@ import { useParams } from "react-router-dom";
 const Details = () => {
     const { id } = useParams();
     const { data: product, isLoading } = useProductsQuery(id!);
+    const { mutate } = useCartMutations()
     if (isLoading) return <div>Loading...</div>
     return (
         <section className="products-detalis" >
@@ -59,7 +61,7 @@ const Details = () => {
                                 <button className="btn--quality__box">1</button>
                                 <button className="btn--quality__box"> + </button>
                             </div>
-                            <button className="cart__btn">Add To Cart</button>
+                            <button className="cart__btn" onClick={() => mutate({ product: product._id, quantity: 1 })}>Add To Cart</button>
                             <button className="cart__btn">+ Compare</button>
                         </div>
                         <div className="prodcus-detalis__right-block">
