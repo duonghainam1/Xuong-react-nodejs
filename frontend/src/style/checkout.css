@@ -127,17 +127,23 @@ header {
 .checkout {
     padding: 40px;
 
-    .checkout-block {
+
+    /* .checkout-block {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 50px;
-    }
+    } */
 
     .bill {
         padding: 20px 50px;
+
     }
 
-
+    .form-bill {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
 
     .bill-heading {
         font-size: 36px;
@@ -183,7 +189,7 @@ header {
 
     .bill-products {
         /* background-color: #B0B0B0; */
-        padding: 70px 40px;
+        padding: 0px 40px;
     }
 
     .bill-products-heading {
