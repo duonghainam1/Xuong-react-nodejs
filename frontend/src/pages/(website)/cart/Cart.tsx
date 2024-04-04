@@ -3,7 +3,7 @@ import { Banner, Services } from "../../../components/HomePages"
 import "@/style/cart.css"
 import { Link } from "react-router-dom";
 const Cart = () => {
-    const { data, isLoading, mutate } = useCart();
+    const { data, isLoading, mutate, calcuateTotal } = useCart();
     if (isLoading) return <div>...Loading</div>
     return (
         <>
@@ -41,6 +41,7 @@ const Cart = () => {
                                                 <td className="quantity">
                                                     <button className="btn reduce" onClick={() => mutate({ action: "reduce", product: product.product })}>-</button>
                                                     <div>{product.quantity}</div>
+
                                                     <button className="btn increase" onClick={() => mutate({ action: "increase", product: product.product })}>+</button>
                                                 </td>
                                                 <td>
@@ -69,7 +70,7 @@ const Cart = () => {
                                 </div>
                                 <div className="cart-totals-block__number">
                                     <p className="cart-totals-block__number--name price">25.000.000đ</p>
-                                    <p className="cart-totals-block__number--name color">25.000.000đ</p>
+                                    <p className="cart-totals-block__number--name color">${calcuateTotal()}</p>
                                 </div>
                             </div>
                             <Link to={`/checkout`}><button className="cart-totals__btn">Check Out</button></Link>

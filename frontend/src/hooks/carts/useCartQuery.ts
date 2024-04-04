@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useLocalStorage } from "../useStorage";
 import instance from "@/config/axios";
+import { reduce } from "lodash";
 
 const useCart = () => {
     const queryClient = useQueryClient()
@@ -43,10 +44,16 @@ const useCart = () => {
             })
         }
     })
+
+    const calcuateTotal = () => {
+        if (!data || !data.products) return 0
+        return reduce(data.products, (total, product) => total + product.price * product.quantity, 0)
+    }
     return {
         data,
         ...rest,
-        mutate
+        mutate,
+        calcuateTotal
     }
 }
 export default useCart;
