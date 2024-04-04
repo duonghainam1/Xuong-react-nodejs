@@ -2,7 +2,6 @@ import useProductsMutation from "@/hooks/products/useProductsMutation";
 import {
     Form,
     FormControl,
-    // FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -11,9 +10,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "../../../components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-
-
-
 
 const AddProducts = () => {
     const { onSubmit, form } = useProductsMutation({
@@ -32,9 +28,6 @@ const AddProducts = () => {
                                 <FormControl>
                                     <Input placeholder="Tên sản phẩm" {...field} id="name" />
                                 </FormControl>
-                                {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -47,9 +40,6 @@ const AddProducts = () => {
                                 <FormControl>
                                     <Input placeholder="Giá sản phẩm" {...field} id="price" />
                                 </FormControl>
-                                {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -62,9 +52,6 @@ const AddProducts = () => {
                                 <FormControl>
                                     <Input placeholder="Ảnh sản phẩm" {...field} id="image" />
                                 </FormControl>
-                                {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -77,9 +64,6 @@ const AddProducts = () => {
                                 <FormControl>
                                     <Input placeholder="Danh mục" {...field} id="category" />
                                 </FormControl>
-                                {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -92,9 +76,6 @@ const AddProducts = () => {
                                 <FormControl>
                                     <Input placeholder="Mô tả sản phẩm" {...field} id="description" />
                                 </FormControl>
-                                {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -107,9 +88,6 @@ const AddProducts = () => {
                                 <FormControl>
                                     <Input placeholder="Giảm giá" {...field} id="discount" />
                                 </FormControl>
-                                {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -122,9 +100,6 @@ const AddProducts = () => {
                                 <FormControl>
                                     <Input placeholder="Số lượng trong kho" {...field} id="countInStock" />
                                 </FormControl>
-                                {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -143,7 +118,6 @@ const AddProducts = () => {
                                     <FormLabel>
                                         Featured
                                     </FormLabel>
-
                                 </div>
                                 <FormMessage />
                             </FormItem>
@@ -153,7 +127,6 @@ const AddProducts = () => {
                 </form>
             </Form>
         </>
-
     )
 }
 

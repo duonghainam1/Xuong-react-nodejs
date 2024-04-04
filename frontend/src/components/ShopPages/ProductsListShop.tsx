@@ -36,8 +36,8 @@ const ProductsListShop = ({ featured, data }: ProductListProps) => {
                                         <h1 className="box_heading">{product.name}</h1>
                                         <p className="box_text">Stylish cafe chair</p>
                                         <div className="box_price">
-                                            <p className="price_left">2.500.000đ</p>
-                                            <p className="price_right"> <s>3.500.000đ</s> </p>
+                                            <p className="price_left">{product?.price - (product?.price * (product.discount / 100))}</p>
+                                            <p className="price_right"> <s>{product.price}</s> </p>
                                         </div>
                                     </div>
                                     <div className="item_sale">

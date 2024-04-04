@@ -41,7 +41,6 @@ const Cart = () => {
                                                 <td className="quantity">
                                                     <button className="btn reduce" onClick={() => mutate({ action: "reduce", product: product.product })}>-</button>
                                                     <div>{product.quantity}</div>
-
                                                     <button className="btn increase" onClick={() => mutate({ action: "increase", product: product.product })}>+</button>
                                                 </td>
                                                 <td>

@@ -1,7 +1,44 @@
+
+import instance from "@/config/axios";
 import { Banner, Services } from "../../../components/HomePages"
 import "@/style/checkout.css"
+import { useMutation } from "@tanstack/react-query";
+import useCart from "@/hooks/carts/useCartQuery";
+import { useLocalStorage } from "@/hooks/useStorage";
+import { useForm } from "react-hook-form";
 
 const CheckOut = () => {
+    const form = useForm();
+    const [user] = useLocalStorage("user", {});
+    const userId = user?.user?._id;
+    const { data, calculateTotal } = useCart();
+    const { mutate } = useMutation({
+        mutationFn: async (order: {
+            userId: string;
+            items: [];
+            totalPrice: number;
+            customerInfo: object;
+        }) => {
+            const { data } = await instance.post(
+                "http://localhost:8080/api/v1/orders",
+                order,
+            );
+            return data;
+        },
+        onSuccess: () => {
+            // navigate("/thankyou")
+            alert("Đặt hàng thành công");
+        },
+    });
+
+    const onSubmit = (formData: object) => {
+        mutate({
+            userId,
+            items: data?.products,
+            totalPrice: calculateTotal(),
+            customerInfo: formData,
+        });
+    };
     return (
         <>
             <Banner />
@@ -10,15 +47,15 @@ const CheckOut = () => {
                     <div className="checkout-block">
                         <div className="bill">
                             <h2 className="bill-heading">Billing details</h2>
-                            <form className="form-bill">
+                            <form className="form-bill" onSubmit={form.handleSubmit(onSubmit)}>
                                 <div className="bill-full-name">
                                     <div className="bill-block">
                                         <p className="bill-block__name">First Name</p>
-                                        <input type="text" className="bill-block-input" />
+                                        <input type="text" className="bill-block-input" {...form.register("first")} />
                                     </div>
                                     <div className="bill-block">
                                         <p className="bill-block__name">Last Name</p>
-                                        <input type="text" className="bill-block-input" />
+                                        <input type="text" className="bill-block-input" {...form.register("last")} />
                                     </div>
                                 </div>
                                 <div className="bill-body">

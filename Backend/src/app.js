@@ -5,6 +5,7 @@ import authRouter from "./routers/auth"
 import productsRouter from "./routers/products"
 import categoryRouter from "./routers/category"
 import cartRouter from "./routers/cart"
+import orderRouter from "./routers/order"
 import { connectDB } from "./config/db";
 import morgan from "morgan";
 
@@ -21,6 +22,7 @@ app.use('/api/v1', authRouter)
 app.use('/api/v1', productsRouter)
 app.use('/api/v1', categoryRouter)
 app.use('/api/v1', cartRouter)
+app.use('/api/v1', orderRouter)
 
 
 
