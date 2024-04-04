@@ -50,7 +50,7 @@ export const deleteCart = async (req, res) => {
             return res.status(StatusCodes.NOT_FOUND).json({ error: "Giỏ hàng trống" })
         }
         cart.products = cart.products.filter(
-            (productInCart) => productInCart && productInCart._id.toString() !== product
+            (productInCart) => productInCart.product && productInCart.product.toString() !== product
         )
         await cart.save()
         return res.status(StatusCodes.OK).json({ cart })
