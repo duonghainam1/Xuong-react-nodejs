@@ -14,7 +14,10 @@ export const cartById = async (req, res) => {
                 price: item.product.price,
                 quantity: item.quantity
             }))
+
         }
+        console.log(cartData);
+
         return res.status(StatusCodes.OK).json(cartData)
     } catch (error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })

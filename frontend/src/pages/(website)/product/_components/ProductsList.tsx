@@ -1,40 +1,29 @@
-
-
 import useCartMutations from "@/hooks/carts/useCartMutations";
 import { Iproduct } from "@/intertaces/product";
 import { getAllProducts } from "@/services/products";
 import { useQuery } from "@tanstack/react-query"
-
 import { Link } from "react-router-dom";
 type ProductListProps = {
     featured?: boolean;
 };
-
 const ProductsList = ({ featured }: ProductListProps) => {
-
     const { data: products, isLoading, isError } = useQuery({
         queryKey: ["PRODUCTS"],
         queryFn: getAllProducts
     });
     const { mutate } = useCartMutations()
-
     const filteredProducts = featured
         ? products?.filter((product: Iproduct) => product?.featured == featured)
         : products;
-
     if (isLoading) return <div>Loading...</div>
     if (isError) return <div>Lỗi rồi</div>
     const newproducts = Object(filteredProducts).slice(0, 4);
-
     return (
-
         <section className="new">
             <div className="container">
                 <h1 className="new-heading">New</h1>
                 <div className="products-body-item">
                     {newproducts?.map((item: Iproduct, index: number) => {
-
-
                         return (
                             <div className="products-body" key={index}>
                                 <div className="item">
@@ -77,11 +66,9 @@ const ProductsList = ({ featured }: ProductListProps) => {
                             </div>
                         )
                     })}
-
                 </div>
             </div>
         </section >
     )
 }
-
 export default ProductsList

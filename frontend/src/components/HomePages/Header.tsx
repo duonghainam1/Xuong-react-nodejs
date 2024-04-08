@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { Logo, account, cart, heart, search } from "../icons/icons"
 import { useEffect, useState } from "react"
+import useCart from "@/hooks/carts/useCartQuery"
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -14,6 +15,10 @@ const Header = () => {
         localStorage.removeItem('user');
         setIsLoggedIn(false);
     };
+
+    const { soluongsp } = useCart();
+
+
     return (
         <header>
             <div className="container">
@@ -50,6 +55,9 @@ const Header = () => {
                         </div>
                         <div className="cart">
                             <NavLink to={'/cart '}><img src={cart} alt="" /></NavLink>
+                            <div className="cart_quantity">
+                                {soluongsp}
+                            </div>
                         </div>
                     </div>
                 </div>

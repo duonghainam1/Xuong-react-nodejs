@@ -50,6 +50,7 @@ header {
 
 }
 
+
 /* ==== MENU ==== */
 
 .main-menu__list {
@@ -84,8 +85,19 @@ header {
 
     &>div {
         padding: 0 20px;
+
+        .cart_quantity {
+            position: absolute;
+            top: 29px;
+            right: 11px;
+
+        }
+
     }
+
 }
+
+
 
 /* ==== BANNER ==== */
 .banner {

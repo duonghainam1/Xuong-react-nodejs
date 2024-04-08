@@ -7,9 +7,8 @@ import ShopPage from './components/ShopPages/ShopPage'
 import Cart from './pages/(website)/cart/Cart'
 import ProductsDetails from './components/ProductsDetails/ProductsDetails'
 import CheckOut from './pages/(website)/CheckOut/CheckOut'
-import AddProducts from './pages/(dashboard)/products/addProducts'
-import UpdateProducts from './pages/(dashboard)/products/updateProducts'
-import ListProducts from './pages/(dashboard)/products/listProducts'
+
+import ListProducts from './pages/(dashboard)/products/_components/listProducts'
 import { Toaster } from "@/components/ui/toaster"
 import CategoryDetails from './pages/(website)/product/category/categoryDetails'
 import ListCategory from './pages/(dashboard)/category/ListCategory'
@@ -17,9 +16,9 @@ import AddCategory from './pages/(dashboard)/category/addCategory'
 import UpdateCategory from './pages/(dashboard)/category/updateCategory'
 import SignIn from './pages/(Auth)/SignIn'
 import SignUp from './pages/(Auth)/SignUp'
-
-
+import FormProduct from './pages/(dashboard)/products/_components/Form'
 function App() {
+
   return (
     <>
       <Routes>
@@ -34,9 +33,10 @@ function App() {
           <Route path='signup' element={<SignUp />} />
         </Route>
         <Route path='admin' element={<LayOutAdmin />}>
+          <Route index element={<ListProducts />} />
           <Route path='products' element={<ListProducts />} />
-          <Route path='products/edit/:id' element={<UpdateProducts />} />
-          <Route path='products/add' element={<AddProducts />} />
+          <Route path='products/edit/:id' element={<FormProduct />} />
+          <Route path='products/add' element={<FormProduct />} />
           <Route path='category' element={<ListCategory />} />
           <Route path='category/add' element={<AddCategory />} />
           <Route path='category/edit/:id' element={<UpdateCategory />} />

@@ -2,8 +2,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useLocalStorage } from "../useStorage";
 import instance from "@/config/axios";
 import { reduce } from "lodash";
+import { useState } from "react";
 
 const useCart = () => {
+    const [soluongsp, setSoluongsp] = useState<number>(0)
     const queryClient = useQueryClient()
     const [user] = useLocalStorage("user", {});
     const userId = user?.user?._id;
@@ -11,8 +13,11 @@ const useCart = () => {
         queryKey: ["cart", userId],
         queryFn: async () => {
             const { data } = await instance.get(`/cart/${userId}`);
+            setSoluongsp(data.products.length);
             return data;
         },
+
+
     });
 
     const { mutate } = useMutation({
@@ -53,7 +58,8 @@ const useCart = () => {
         data,
         ...rest,
         mutate,
-        calcuateTotal
+        calcuateTotal,
+        soluongsp
     }
 }
 export default useCart;

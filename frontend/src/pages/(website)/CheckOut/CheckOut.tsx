@@ -7,8 +7,10 @@ import useCart from "@/hooks/carts/useCartQuery";
 import { useLocalStorage } from "@/hooks/useStorage";
 import { useForm } from "react-hook-form";
 import { Iproduct } from "@/intertaces/product";
+import { useToast } from "@/components/ui/use-toast";
 
 const CheckOut = () => {
+    const { toast } = useToast()
     const form = useForm();
     const [user] = useLocalStorage("user", {});
     const userId = user?.user?._id;
@@ -25,7 +27,10 @@ const CheckOut = () => {
         },
         onSuccess: () => {
             // navigate("/thankyou")
-            alert("Đặt hàng thành công");
+            toast({
+                title: "Đặt hàng thành công",
+                variant: "success"
+            })
         },
     });
 
@@ -107,17 +112,20 @@ const CheckOut = () => {
                                                 <p className="heading__left--title">Product</p>
                                                 <p className="heading__left--text color">{item.name}</p>
                                                 <p className="heading__left--text">Số lượng</p>
-                                                <p className="heading__left--text">Total</p>
+
                                             </div>
                                             <div className="bill-products-heading__right">
                                                 <p className="heading__right--title">Subtotal</p>
                                                 <p className="heading__right--text">{item.price}</p>
                                                 <p className="heading__right--text">{item.quantity}</p>
-                                                <p className="heading__right--text orange">{calcuateTotal()}</p>
+
                                             </div>
                                         </div>
                                     ))}
-
+                                    <div className="totals">
+                                        <p className="heading__left--text">Total</p>
+                                        <p className="heading__right--text orange">{calcuateTotal()}</p>
+                                    </div>
                                     <div className="bill-products-desc">
                                         <div className="desc-check">
                                             <input className="desc__input" type="radio" /> <span className="desc__input--color">Direct Bank
