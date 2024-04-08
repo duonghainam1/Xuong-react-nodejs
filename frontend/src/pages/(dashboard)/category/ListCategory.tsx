@@ -29,9 +29,9 @@ const ListCategory = () => {
                 <TableCaption>Bảng danh mục</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="w-[50px]">ID</TableHead>
-                        <TableHead className='border'>Tên danh mục</TableHead>
-                        <TableHead className='border'>Chức năng</TableHead>
+                        <TableHead className="w-[50px] border">ID</TableHead>
+                        <TableHead className='border text-center'>Tên danh mục</TableHead>
+                        <TableHead className='border text-center'>Chức năng</TableHead>
 
 
                     </TableRow>
@@ -41,9 +41,9 @@ const ListCategory = () => {
                     {data?.map((category: ICategory, index: number) => {
                         return (
                             <TableRow key={index}>
-                                <TableCell className="font-medium">{index + 1}</TableCell>
-                                <TableCell className='border'>{category.name}</TableCell>
-                                <TableCell className='border'>
+                                <TableCell className="font-medium border">{index + 1}</TableCell>
+                                <TableCell className='border text-center'>{category.name}</TableCell>
+                                <TableCell className='border text-center'>
                                     <Button className="bg-red-500" onClick={() => mutate(category)}>Xóa</Button>
                                     <Link to={`/admin/category/edit/${category._id}`}><Button className='mx-5 bg-blue-500'>Sửa</Button></Link>
                                 </TableCell>
