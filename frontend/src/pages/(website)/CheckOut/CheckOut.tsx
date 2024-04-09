@@ -112,12 +112,15 @@ const CheckOut = () => {
                                                 <p className="heading__left--title">Product</p>
                                                 <p className="heading__left--text color">{item.name}</p>
                                                 <p className="heading__left--text">Số lượng</p>
-
+                                                <p className="heading__left--text">Ảnh sản phẩm</p>
                                             </div>
                                             <div className="bill-products-heading__right">
                                                 <p className="heading__right--title">Subtotal</p>
                                                 <p className="heading__right--text">{item.price}</p>
                                                 <p className="heading__right--text">{item.quantity}</p>
+                                                <p className="heading__right--text">{
+                                                    <img src={item.image} width={100} alt="" />
+                                                }</p>
 
                                             </div>
                                         </div>
