@@ -19,7 +19,7 @@ const HeaderAdmin = () => {
                                     <Link to={'/admin'} className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</Link>
                                     <Link to={'/admin/products'} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Products</Link>
                                     <Link to={'/admin/category'} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Category</Link>
-                                    <Link to={'/admin/order'} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Order</Link>
+                                    <Link to={'/admin/orders'} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Order</Link>
                                 </div>
                             </div>
                         </div>

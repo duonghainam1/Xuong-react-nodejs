@@ -40,6 +40,7 @@ function App() {
           <Route path='category' element={<ListCategory />} />
           <Route path='category/add' element={<AddCategory />} />
           <Route path='category/edit/:id' element={<UpdateCategory />} />
+          <Route path='orders' element={<UpdateCategory />} />
         </Route>
       </Routes>
       <Toaster />
